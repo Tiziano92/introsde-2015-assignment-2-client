@@ -1,0 +1,317 @@
+Server calling: https://peaceful-garden-1175.herokuapp.com/sdelab
+
+===================STEP 3.1=======================
+
+Request #1: GET /person Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 200
+[ {
+  "idPerson" : 1,
+  "firstname" : "hjjhsadhjadja",
+  "lastname" : "Norris",
+  "birthdate" : "2015-11-21 17:40:38",
+  "email" : "chuck.norris@gmail.com",
+  "username" : "chuck.norris",
+  "lifeStatus" : [ {
+    "value" : "380",
+    "measureType" : {
+      "idMeasureDef" : 2,
+      "name" : "height"
+    }
+  }, {
+    "value" : "550",
+    "measureType" : {
+      "idMeasureDef" : 3,
+      "name" : "steps"
+    }
+  } ]
+}, {
+  "idPerson" : 2,
+  "firstname" : "Chuck",
+  "lastname" : "Norris",
+  "birthdate" : "2015-11-21 17:40:38",
+  "email" : "pavel.kucherbaev@gmail.com",
+  "username" : "pinco",
+  "lifeStatus" : [ ]
+}, {
+  "idPerson" : 2203,
+  "firstname" : "Jackie",
+  "lastname" : "Chan",
+  "birthdate" : "2015-11-21 17:40:38",
+  "email" : "chuck.norris@gmail.com",
+  "username" : "chuck.norris",
+  "lifeStatus" : [ ]
+} ]
+
+===================STEP 3.2=======================
+
+Request #2: GET /person/1 Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 200
+{
+  "idPerson" : 1,
+  "firstname" : "hjjhsadhjadja",
+  "lastname" : "Norris",
+  "birthdate" : "2015-11-21 17:40:38",
+  "email" : "chuck.norris@gmail.com",
+  "username" : "chuck.norris",
+  "lifeStatus" : [ {
+    "value" : "380",
+    "measureType" : {
+      "idMeasureDef" : 2,
+      "name" : "height"
+    }
+  }, {
+    "value" : "550",
+    "measureType" : {
+      "idMeasureDef" : 3,
+      "name" : "steps"
+    }
+  } ]
+}
+
+===================STEP 3.3=======================
+
+Request #3: PUT /person/1 Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: ERROR
+=> HTTP Status: 201
+{
+  "idPerson" : 1,
+  "firstname" : "hjjhsadhjadja",
+  "lastname" : "Norris",
+  "birthdate" : "2015-11-21 17:40:38",
+  "email" : "chuck.norris@gmail.com",
+  "username" : "chuck.norris",
+  "lifeStatus" : [ {
+    "value" : "380",
+    "measureType" : {
+      "idMeasureDef" : 2,
+      "name" : "height"
+    }
+  }, {
+    "value" : "550",
+    "measureType" : {
+      "idMeasureDef" : 3,
+      "name" : "steps"
+    }
+  } ]
+}
+
+===================STEP 3.4=======================
+
+Request #4: POST /person Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 201
+{
+  "idPerson" : 3454,
+  "firstname" : "Chuck",
+  "lastname" : "Norris",
+  "birthdate" : "1945-01-01",
+  "email" : null,
+  "username" : null,
+  "lifeStatus" : [ {
+    "value" : "78.9",
+    "measureType" : {
+      "idMeasureDef" : 1,
+      "name" : "weight"
+    }
+  }, {
+    "value" : "172",
+    "measureType" : {
+      "idMeasureDef" : 2,
+      "name" : "height"
+    }
+  } ]
+}
+
+===================STEP 3.5=======================
+
+Request #5: DELETE /person/3454 Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 204
+
+Request #6: GET /person/3454 Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 404
+
+===================STEP 3.6=======================
+
+Request #9: GET /person/measureTypes Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 200
+{
+  "measureType" : [ "weight", "height", "steps", "blood pressure", "heart rate", "bmi" ]
+}
+
+===================STEP 3.7=======================
+
+Request #6: GET /person/1/weight Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 200
+[ {
+  "mid" : 3,
+  "value" : "80",
+  "created" : "2013-06-29 22:00:00"
+}, {
+  "mid" : 9,
+  "value" : "150",
+  "created" : "2015-11-21 17:49:07"
+}, {
+  "mid" : 54,
+  "value" : "88",
+  "created" : "2013-02-26 23:00:00"
+} ]
+
+Request #6: GET /person/1/height Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/1/steps Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/1/blood pressure Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/1/heart rate Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/2203/weight Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/2203/height Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/2203/steps Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/2203/blood pressure Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/2203/heart rate Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 404
+
+===================STEP 3.8=======================
+
+Request #8: GET /person/1/weight/3 Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 200
+{
+  "mid" : 3,
+  "value" : "80",
+  "created" : "2013-06-29 22:00:00"
+}
+
+Request #8: GET /person/2203/weight/3 Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 200
+{
+  "mid" : 3,
+  "value" : "80",
+  "created" : "2013-06-29 22:00:00"
+}
+
+===================STEP 3.9=======================
+
+Request #6: GET /person/1/weight Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 200
+[ {
+  "mid" : 3,
+  "value" : "80",
+  "created" : "2013-06-29 22:00:00"
+}, {
+  "mid" : 9,
+  "value" : "150",
+  "created" : "2015-11-21 17:49:07"
+}, {
+  "mid" : 54,
+  "value" : "88",
+  "created" : "2013-02-26 23:00:00"
+} ]
+
+Request #8: POST /person/1/weight Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 200
+{
+  "idPerson" : 1,
+  "firstname" : "hjjhsadhjadja",
+  "lastname" : "Norris",
+  "birthdate" : "2015-11-21 17:40:38",
+  "email" : "chuck.norris@gmail.com",
+  "username" : "chuck.norris",
+  "lifeStatus" : [ {
+    "value" : "380",
+    "measureType" : {
+      "idMeasureDef" : 2,
+      "name" : "height"
+    }
+  }, {
+    "value" : "550",
+    "measureType" : {
+      "idMeasureDef" : 3,
+      "name" : "steps"
+    }
+  }, {
+    "value" : "72",
+    "measureType" : {
+      "idMeasureDef" : 1,
+      "name" : "weight"
+    }
+  } ]
+}
+
+Request #6: GET /person/1/weight Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 200
+[ {
+  "mid" : 3,
+  "value" : "80",
+  "created" : "2013-06-29 22:00:00"
+}, {
+  "mid" : 9,
+  "value" : "150",
+  "created" : "2015-11-21 17:49:07"
+}, {
+  "mid" : 54,
+  "value" : "88",
+  "created" : "2013-02-26 23:00:00"
+}, {
+  "mid" : 854,
+  "value" : "72",
+  "created" : "2015-11-23 19:54:16"
+} ]
+
+===================STEP 3.10=======================
+
+Request #10: PUT /person/1/weight/854 Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 201
+
+Request #6: GET /person/1/weight Accept: APPLICATION/JSON Content-Type: APPLICATION/JSON
+=> Result: OK
+=> HTTP Status: 200
+[ {
+  "mid" : 3,
+  "value" : "80",
+  "created" : "2013-06-29 22:00:00"
+}, {
+  "mid" : 9,
+  "value" : "150",
+  "created" : "2015-11-21 17:49:07"
+}, {
+  "mid" : 54,
+  "value" : "90",
+  "created" : "2013-02-26 23:00:00"
+}, {
+  "mid" : 854,
+  "value" : "90",
+  "created" : "2015-11-23 19:54:16"
+} ]

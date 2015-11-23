@@ -1,0 +1,369 @@
+Server calling: https://peaceful-garden-1175.herokuapp.com/sdelab
+
+===================STEP 3.1=======================
+
+Request #1: GET /person Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8"?><people>
+  <person>
+    <idPerson>1</idPerson>
+    <firstname>hjjhsadhjadja</firstname>
+    <lastname>Norris</lastname>
+    <birthdate>2015-11-21 17:40:38</birthdate>
+    <email>chuck.norris@gmail.com</email>
+    <username>chuck.norris</username>
+    <healthProfile>
+      <lifeStatus>
+        <measureType>
+          <idMeasureDef>2</idMeasureDef>
+          <name>height</name>
+        </measureType>
+        <value>380</value>
+      </lifeStatus>
+      <lifeStatus>
+        <measureType>
+          <idMeasureDef>3</idMeasureDef>
+          <name>steps</name>
+        </measureType>
+        <value>550</value>
+      </lifeStatus>
+    </healthProfile>
+  </person>
+  <person>
+    <idPerson>2</idPerson>
+    <firstname>Chuck</firstname>
+    <lastname>Norris</lastname>
+    <birthdate>2015-11-21 17:40:38</birthdate>
+    <email>pavel.kucherbaev@gmail.com</email>
+    <username>pinco</username>
+    <healthProfile/>
+  </person>
+  <person>
+    <idPerson>2203</idPerson>
+    <firstname>Jackie</firstname>
+    <lastname>Chan</lastname>
+    <birthdate>2015-11-21 17:40:38</birthdate>
+    <email>chuck.norris@gmail.com</email>
+    <username>chuck.norris</username>
+    <healthProfile/>
+  </person>
+</people>
+
+
+===================STEP 3.2=======================
+
+Request #2: GET /person/1 Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8"?><person>
+  <idPerson>1</idPerson>
+  <firstname>hjjhsadhjadja</firstname>
+  <lastname>Norris</lastname>
+  <birthdate>2015-11-21 17:40:38</birthdate>
+  <email>chuck.norris@gmail.com</email>
+  <username>chuck.norris</username>
+  <healthProfile>
+    <lifeStatus>
+      <measureType>
+        <idMeasureDef>2</idMeasureDef>
+        <name>height</name>
+      </measureType>
+      <value>380</value>
+    </lifeStatus>
+    <lifeStatus>
+      <measureType>
+        <idMeasureDef>3</idMeasureDef>
+        <name>steps</name>
+      </measureType>
+      <value>550</value>
+    </lifeStatus>
+  </healthProfile>
+</person>
+
+
+===================STEP 3.3=======================
+
+Request #3: PUT /person/1 Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: ERROR
+=> HTTP Status: 201
+<?xml version="1.0" encoding="UTF-8"?><person>
+  <idPerson>1</idPerson>
+  <firstname>hjjhsadhjadja</firstname>
+  <lastname>Norris</lastname>
+  <birthdate>2015-11-21 17:40:38</birthdate>
+  <email>chuck.norris@gmail.com</email>
+  <username>chuck.norris</username>
+  <healthProfile>
+    <lifeStatus>
+      <measureType>
+        <idMeasureDef>2</idMeasureDef>
+        <name>height</name>
+      </measureType>
+      <value>380</value>
+    </lifeStatus>
+    <lifeStatus>
+      <measureType>
+        <idMeasureDef>3</idMeasureDef>
+        <name>steps</name>
+      </measureType>
+      <value>550</value>
+    </lifeStatus>
+  </healthProfile>
+</person>
+
+
+===================STEP 3.4=======================
+
+Request #4: POST /person Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 201
+<?xml version="1.0" encoding="UTF-8"?><person>
+  <idPerson>3453</idPerson>
+  <firstname>Chuck</firstname>
+  <lastname>Norris</lastname>
+  <birthdate>1945-01-01</birthdate>
+  <healthProfile>
+    <lifeStatus>
+      <measureType>
+        <idMeasureDef>1</idMeasureDef>
+        <name>weight</name>
+      </measureType>
+      <value>78.9</value>
+    </lifeStatus>
+    <lifeStatus>
+      <measureType>
+        <idMeasureDef>2</idMeasureDef>
+        <name>height</name>
+      </measureType>
+      <value>172</value>
+    </lifeStatus>
+  </healthProfile>
+</person>
+
+
+===================STEP 3.5=======================
+
+Request #5: DELETE /person/3453 Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 204
+
+Request #6: GET /person/3453 Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 404
+
+===================STEP 3.6=======================
+
+Request #9: GET /person/measureTypes Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8"?><measureTypes>
+  <measureType>weight</measureType>
+  <measureType>height</measureType>
+  <measureType>steps</measureType>
+  <measureType>blood pressure</measureType>
+  <measureType>heart rate</measureType>
+  <measureType>bmi</measureType>
+</measureTypes>
+
+
+===================STEP 3.7=======================
+
+Request #6: GET /person/1/weight Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8"?><healthMeasureHistories>
+  <measure>
+    <mid>3</mid>
+    <value>80</value>
+    <created>2013-06-29 22:00:00</created>
+  </measure>
+  <measure>
+    <mid>9</mid>
+    <value>150</value>
+    <created>2015-11-21 17:49:07</created>
+  </measure>
+  <measure>
+    <mid>54</mid>
+    <value>88</value>
+    <created>2013-02-26 23:00:00</created>
+  </measure>
+</healthMeasureHistories>
+
+
+Request #6: GET /person/1/height Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/1/steps Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/1/blood pressure Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/1/heart rate Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/2203/weight Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/2203/height Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/2203/steps Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/2203/blood pressure Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 404
+
+Request #6: GET /person/2203/heart rate Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 404
+
+===================STEP 3.8=======================
+
+Request #8: GET /person/1/weight/3 Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8"?><measure>
+  <mid>3</mid>
+  <value>80</value>
+  <created>2013-06-29 22:00:00</created>
+</measure>
+
+
+Request #8: GET /person/2203/weight/3 Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8"?><measure>
+  <mid>3</mid>
+  <value>80</value>
+  <created>2013-06-29 22:00:00</created>
+</measure>
+
+
+===================STEP 3.9=======================
+
+Request #6: GET /person/1/weight Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8"?><healthMeasureHistories>
+  <measure>
+    <mid>3</mid>
+    <value>80</value>
+    <created>2013-06-29 22:00:00</created>
+  </measure>
+  <measure>
+    <mid>9</mid>
+    <value>150</value>
+    <created>2015-11-21 17:49:07</created>
+  </measure>
+  <measure>
+    <mid>54</mid>
+    <value>88</value>
+    <created>2013-02-26 23:00:00</created>
+  </measure>
+</healthMeasureHistories>
+
+
+Request #8: POST /person/1/weight Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8"?><person>
+  <idPerson>1</idPerson>
+  <firstname>hjjhsadhjadja</firstname>
+  <lastname>Norris</lastname>
+  <birthdate>2015-11-21 17:40:38</birthdate>
+  <email>chuck.norris@gmail.com</email>
+  <username>chuck.norris</username>
+  <healthProfile>
+    <lifeStatus>
+      <measureType>
+        <idMeasureDef>2</idMeasureDef>
+        <name>height</name>
+      </measureType>
+      <value>380</value>
+    </lifeStatus>
+    <lifeStatus>
+      <measureType>
+        <idMeasureDef>3</idMeasureDef>
+        <name>steps</name>
+      </measureType>
+      <value>550</value>
+    </lifeStatus>
+    <lifeStatus>
+      <measureType>
+        <idMeasureDef>1</idMeasureDef>
+        <name>weight</name>
+      </measureType>
+      <value>72</value>
+    </lifeStatus>
+  </healthProfile>
+</person>
+
+
+Request #6: GET /person/1/weight Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8"?><healthMeasureHistories>
+  <measure>
+    <mid>3</mid>
+    <value>80</value>
+    <created>2013-06-29 22:00:00</created>
+  </measure>
+  <measure>
+    <mid>9</mid>
+    <value>150</value>
+    <created>2015-11-21 17:49:07</created>
+  </measure>
+  <measure>
+    <mid>54</mid>
+    <value>88</value>
+    <created>2013-02-26 23:00:00</created>
+  </measure>
+  <measure>
+    <mid>854</mid>
+    <value>72</value>
+    <created>2015-11-23 19:54:16</created>
+  </measure>
+</healthMeasureHistories>
+
+
+===================STEP 3.10=======================
+
+Request #10: PUT /person/1/weight/54 Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 201
+
+Request #6: GET /person/1/weight Accept: APPLICATION/XML Content-Type: APPLICATION/XML
+=> Result: OK
+=> HTTP Status: 200
+<?xml version="1.0" encoding="UTF-8"?><healthMeasureHistories>
+  <measure>
+    <mid>3</mid>
+    <value>80</value>
+    <created>2013-06-29 22:00:00</created>
+  </measure>
+  <measure>
+    <mid>9</mid>
+    <value>150</value>
+    <created>2015-11-21 17:49:07</created>
+  </measure>
+  <measure>
+    <mid>54</mid>
+    <value>90</value>
+    <created>2013-02-26 23:00:00</created>
+  </measure>
+  <measure>
+    <mid>854</mid>
+    <value>90</value>
+    <created>2015-11-23 19:54:16</created>
+  </measure>
+</healthMeasureHistories>
