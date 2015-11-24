@@ -103,7 +103,7 @@
                 </fileset>
             </copy>
         </target>
-        <target name="execute.client">
+        <target name="execute.client" depends="install">
             <echo message="app start introsde.rest.ehealth.Test2 in ${build.dir}" />
             <java classname="introsde.rest.ehealth.Test3" classpath="${build.dir}" fork="true">
                 <arg value="$JAVA_OPTS  -cp" />
